@@ -9,6 +9,9 @@ import java.io.InputStream
 class Day1 : Challenge {
     override val adventDay = 1
 
+    // read the text file line-by-line, converting the calories to longs, and the line returns to null.
+    // iterate over the list of calories, adding each calorie to the last element of the list if the element is
+    // not null. If the calorie is null, add a new element to the list with a value of zero.
     private fun readDataStream(stream: InputStream) = stream.bufferedReader().useLines { sequence ->
         sequence.map { it.trimToNull()?.toLong() }
             .fold(listOf<Long>(0)) { listOfCalorieSums, currentCalorie ->
